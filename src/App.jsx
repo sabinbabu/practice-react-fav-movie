@@ -11,7 +11,6 @@ import FavoriteMovies from "./components/FavoriteMovies";
 function App() {
   const [movie, setMovie] = useState({});
   const [favMovies, setFavMovies] = useState([]);
-  console.log(favMovies);
 
   // Check if movie is already in list
   const isMovieAdded = () => {

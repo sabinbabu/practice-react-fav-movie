@@ -14,7 +14,10 @@ const MovieCard = ({ movie, onHandleRemoveBtnClick }) => {
           direction="horizontal"
           className="d-flex justify-content-between"
         >
-          <Badge bg="danger">{movie.Country}</Badge>
+          <Badge key={movie.imdbID} bg="danger">
+            {movie.Country?.split(",")[0]}
+          </Badge>
+
           {movie.genre && (
             <Button
               variant="outline-danger"
