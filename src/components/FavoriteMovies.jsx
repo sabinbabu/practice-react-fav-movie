@@ -2,7 +2,7 @@
 import { Container, Tabs, Tab } from "react-bootstrap";
 import TabMoviePage from "./TabMoviePage";
 
-const FavoriteMovies = ({ favMovies }) => {
+const FavoriteMovies = ({ favMovies, onHandleRemoveBtnClick }) => {
   const comedyMovies = favMovies.filter(
     (favMovie) => favMovie.genre === "comedy"
   );
@@ -23,16 +23,28 @@ const FavoriteMovies = ({ favMovies }) => {
         className="mb-3"
       >
         <Tab eventKey="all" title="All">
-          <TabMoviePage favMovies={favMovies} />
+          <TabMoviePage
+            favMovies={favMovies}
+            onHandleRemoveBtnClick={onHandleRemoveBtnClick}
+          />
         </Tab>
         <Tab eventKey="comedy" title="Comedy">
-          <TabMoviePage favMovies={comedyMovies} />
+          <TabMoviePage
+            favMovies={comedyMovies}
+            onHandleRemoveBtnClick={onHandleRemoveBtnClick}
+          />
         </Tab>
         <Tab eventKey="romance" title="Romance">
-          <TabMoviePage favMovies={romanceMovies} />
+          <TabMoviePage
+            favMovies={romanceMovies}
+            onHandleRemoveBtnClick={onHandleRemoveBtnClick}
+          />
         </Tab>
         <Tab eventKey="drama" title="Drama">
-          <TabMoviePage favMovies={dramaMovies} />
+          <TabMoviePage
+            favMovies={dramaMovies}
+            onHandleRemoveBtnClick={onHandleRemoveBtnClick}
+          />
         </Tab>
       </Tabs>
     </Container>

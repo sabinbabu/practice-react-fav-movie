@@ -1,14 +1,29 @@
 /* eslint-disable react/prop-types */
-import { Card, Badge } from "react-bootstrap";
+import { Card, Badge, Button, Stack } from "react-bootstrap";
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, onHandleRemoveBtnClick }) => {
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={movie.Poster} />
+    <Card style={{ width: "22rem" }} className="m-2">
+      <Card.Img variant="top" src={movie.Poster} style={{ height: "25rem" }} />
       <Card.Body>
-        <Card.Text>{movie.Title}</Card.Text>
+        <Card.Text>
+          <b>{movie.Title}</b>
+        </Card.Text>
         <Card.Text>{movie.Plot}</Card.Text>
-        <Badge bg="danger">{movie.Country}</Badge>
+        <Stack
+          direction="horizontal"
+          className="d-flex justify-content-between"
+        >
+          <Badge bg="danger">{movie.Country}</Badge>
+          {movie.genre && (
+            <Button
+              variant="outline-danger"
+              onClick={() => onHandleRemoveBtnClick(movie.imdbID)}
+            >
+              Remove
+            </Button>
+          )}
+        </Stack>
       </Card.Body>
     </Card>
   );

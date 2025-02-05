@@ -2,12 +2,15 @@
 import { Row, Col } from "react-bootstrap";
 import MovieCard from "./MovieCard";
 
-const TabMoviePage = ({ favMovies }) => {
+const TabMoviePage = ({ favMovies, onHandleRemoveBtnClick }) => {
   return (
-    <Row>
+    <Row className="overflow-scroll" style={{ height: "70vh" }}>
       {favMovies.map((favMovie) => (
         <Col key={favMovie.imdbID}>
-          <MovieCard movie={favMovie} />
+          <MovieCard
+            onHandleRemoveBtnClick={onHandleRemoveBtnClick}
+            movie={favMovie}
+          />
         </Col>
       ))}
     </Row>

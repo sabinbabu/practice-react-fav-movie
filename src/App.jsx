@@ -13,6 +13,14 @@ function App() {
   const [favMovies, setFavMovies] = useState([]);
   console.log(favMovies);
 
+  // Remove movie from fav List
+  const onHandleRemoveBtnClick = (movieId) => {
+    const updatedMovies = favMovies.filter(
+      (favMovie) => favMovie.imdbID !== movieId
+    );
+
+    setFavMovies(updatedMovies);
+  };
   return (
     <Container fluid>
       <Header />
@@ -26,7 +34,10 @@ function App() {
           <SearchResult movie={movie} setFavMovies={setFavMovies} />
         </Col>
         <Col xs={8}>
-          <FavoriteMovies favMovies={favMovies} />
+          <FavoriteMovies
+            favMovies={favMovies}
+            onHandleRemoveBtnClick={onHandleRemoveBtnClick}
+          />
         </Col>
       </Row>
     </Container>

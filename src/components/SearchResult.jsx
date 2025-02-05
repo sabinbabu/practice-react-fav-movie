@@ -18,7 +18,7 @@ const SearchResult = ({ movie, setFavMovies }) => {
       <Stack className="mt-2" direction="horizontal" gap={2}>
         <Form.Select
           aria-label="Default select example"
-          style={{ width: "11rem" }}
+          style={{ width: "12rem" }}
           ref={selectGenreRef}
         >
           <option>Select Genre</option>
