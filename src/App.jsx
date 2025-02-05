@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
 import { useState } from "react";
 import SearchResult from "./components/SearchResult";
+import FavoriteMovies from "./components/FavoriteMovies";
 
 function App() {
   const [movie, setMovie] = useState({});
@@ -24,7 +25,9 @@ function App() {
         >
           <SearchResult movie={movie} setFavMovies={setFavMovies} />
         </Col>
-        <Col xs={8}></Col>
+        <Col xs={8}>
+          <FavoriteMovies favMovies={favMovies} />
+        </Col>
       </Row>
     </Container>
   );

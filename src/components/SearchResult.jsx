@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useRef } from "react";
-import { Card, Button, Badge, Form, Stack, Container } from "react-bootstrap";
-
+import { Button, Form, Stack, Container } from "react-bootstrap";
+import MovieCard from "./MovieCard";
 const SearchResult = ({ movie, setFavMovies }) => {
   const selectGenreRef = useRef(null);
 
@@ -13,14 +13,7 @@ const SearchResult = ({ movie, setFavMovies }) => {
   return (
     <Container>
       <h2>Search Result</h2>
-      <Card style={{ width: "18rem" }}>
-        <Card.Img variant="top" src={movie.Poster} />
-        <Card.Body>
-          <Card.Text>{movie.Title}</Card.Text>
-          <Card.Text>{movie.Plot}</Card.Text>
-          <Badge bg="danger">{movie.Country}</Badge>
-        </Card.Body>
-      </Card>
+      <MovieCard movie={movie} />
 
       <Stack className="mt-2" direction="horizontal" gap={2}>
         <Form.Select
