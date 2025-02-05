@@ -31,18 +31,21 @@ const FavoriteMovies = ({ favMovies, onHandleRemoveBtnClick }) => {
         <Tab eventKey="comedy" title="Comedy">
           <TabMoviePage
             favMovies={comedyMovies}
+            genre="comedy"
             onHandleRemoveBtnClick={onHandleRemoveBtnClick}
           />
         </Tab>
         <Tab eventKey="romance" title="Romance">
           <TabMoviePage
             favMovies={romanceMovies}
+            genre="romantic"
             onHandleRemoveBtnClick={onHandleRemoveBtnClick}
           />
         </Tab>
         <Tab eventKey="drama" title="Drama">
           <TabMoviePage
             favMovies={dramaMovies}
+            genre="drama"
             onHandleRemoveBtnClick={onHandleRemoveBtnClick}
           />
         </Tab>
