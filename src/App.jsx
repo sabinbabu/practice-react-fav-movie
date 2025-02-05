@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Alert } from "react-bootstrap";
 
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
@@ -35,11 +35,15 @@ function App() {
           xs={4}
           className="d-flex justify-content-center align-items-center"
         >
-          <SearchResult
-            movie={movie}
-            setFavMovies={setFavMovies}
-            isMovieAdded={isMovieAdded}
-          />
+          {Object.keys(movie).length > 2 ? (
+            <SearchResult
+              movie={movie}
+              setFavMovies={setFavMovies}
+              isMovieAdded={isMovieAdded}
+            />
+          ) : (
+            <Alert variant="warning">Please search for a movie</Alert>
+          )}
         </Col>
         <Col xs={8}>
           <FavoriteMovies
