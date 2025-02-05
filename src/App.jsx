@@ -13,12 +13,16 @@ function App() {
   const [favMovies, setFavMovies] = useState([]);
   console.log(favMovies);
 
+  // Check if movie is already in list
+  const isMovieAdded = () => {
+    return favMovies.some((favMovie) => movie.imdbID === favMovie.imdbID);
+  };
+
   // Remove movie from fav List
   const onHandleRemoveBtnClick = (movieId) => {
     const updatedMovies = favMovies.filter(
       (favMovie) => favMovie.imdbID !== movieId
     );
-
     setFavMovies(updatedMovies);
   };
   return (
@@ -31,7 +35,11 @@ function App() {
           xs={4}
           className="d-flex justify-content-center align-items-center"
         >
-          <SearchResult movie={movie} setFavMovies={setFavMovies} />
+          <SearchResult
+            movie={movie}
+            setFavMovies={setFavMovies}
+            isMovieAdded={isMovieAdded}
+          />
         </Col>
         <Col xs={8}>
           <FavoriteMovies

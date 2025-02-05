@@ -2,14 +2,16 @@
 import { useRef } from "react";
 import { Button, Form, Stack, Container } from "react-bootstrap";
 import MovieCard from "./MovieCard";
-const SearchResult = ({ movie, setFavMovies }) => {
-  const selectGenreRef = useRef(null);
 
+const SearchResult = ({ movie, setFavMovies, isMovieAdded }) => {
+  const selectGenreRef = useRef(null);
   //   Add Movie to favorite list
   const handleOnClickAddFav = () => {
     const favMovie = { ...movie, genre: selectGenreRef.current.value };
-    setFavMovies((prevValue) => [...prevValue, favMovie]);
+    setFavMovies((prevValue) => [...prevValue, favMovie].reverse());
+    selectGenreRef.current.value = "Select Genre";
   };
+
   return (
     <Container>
       <h2>Search Result</h2>
@@ -26,7 +28,11 @@ const SearchResult = ({ movie, setFavMovies }) => {
           <option value="romance">Romance</option>
           <option value="drama">Drama</option>
         </Form.Select>
-        <Button variant="primary" onClick={handleOnClickAddFav}>
+        <Button
+          variant="primary"
+          onClick={handleOnClickAddFav}
+          disabled={isMovieAdded()}
+        >
           Add to Fav
         </Button>
       </Stack>
