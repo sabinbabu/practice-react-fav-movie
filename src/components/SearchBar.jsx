@@ -1,7 +1,8 @@
+/* eslint-disable react/prop-types */
 import { useRef } from "react";
 import { Form, Button, Stack, Container } from "react-bootstrap";
 import axios from "axios";
-const SearchBar = () => {
+const SearchBar = ({ setMovie }) => {
   const searchTextRef = useRef(null);
   const MOVIE_API_KEY = "1c0b5c6b";
   const API_URL = `http://www.omdbapi.com/?apikey=${MOVIE_API_KEY}&t=`;
@@ -10,7 +11,8 @@ const SearchBar = () => {
   const handleOnclickSearch = async () => {
     try {
       const response = await axios.get(API_URL + searchTextRef.current.value);
-      console.log(response.data);
+      setMovie(response.data);
+      searchTextRef.current.value = "";
     } catch (error) {
       console.log(error);
     }
