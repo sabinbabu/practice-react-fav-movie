@@ -9,7 +9,8 @@ import SearchResult from "./components/SearchResult";
 
 function App() {
   const [movie, setMovie] = useState({});
-  console.log(movie);
+  const [favMovies, setFavMovies] = useState([]);
+  console.log(favMovies);
 
   return (
     <Container fluid>
@@ -21,7 +22,7 @@ function App() {
           xs={4}
           className="d-flex justify-content-center align-items-center"
         >
-          <SearchResult movie={movie} />
+          <SearchResult movie={movie} setFavMovies={setFavMovies} />
         </Col>
         <Col xs={8}></Col>
       </Row>
