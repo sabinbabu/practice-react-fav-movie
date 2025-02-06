@@ -5,7 +5,7 @@ import axios from "axios";
 const SearchBar = ({ setMovie }) => {
   const searchTextRef = useRef(null);
   const MOVIE_API_KEY = "1c0b5c6b";
-  const API_URL = `http://www.omdbapi.com/?apikey=${MOVIE_API_KEY}&t=`;
+  const API_URL = `https://www.omdbapi.com/?apikey=${MOVIE_API_KEY}&t=`;
 
   //   Search from API
   const handleOnclickSearch = async () => {
